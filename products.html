@@ -1,0 +1,328 @@
+<html><head><base href="https://kevinportfoliohub.com/products">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Portfolio Hub | Products</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6a00;
+            --secondary-color: #0077be;
+            --bg-color: #f0f0f0;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        select, input[type="text"] {
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: white;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin: 0 0 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        .add-to-cart {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+
+        .add-to-cart:hover {
+            background-color: #ff8520;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .filters {
+                flex-direction: column;
+            }
+            .filter-group {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">Kevin Portfolio Hub <i class="fas fa-snowboarding"></i></a>
+            <nav>
+                <a href="./">Home</a>
+                <a href="./products" class="active">Products</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Our Products</h1>
+        <div class="filters">
+            <div class="filter-group">
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="all">All</option>
+                    <option value="all-mountain">All-Mountain</option>
+                    <option value="freestyle">Freestyle</option>
+                    <option value="powder">Powder</option>
+                    <option value="splitboard">Splitboard</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="price">Price:</label>
+                <select id="price">
+                    <option value="all">All</option>
+                    <option value="0-300">$0 - $300</option>
+                    <option value="301-500">$301 - $500</option>
+                    <option value="501-700">$501 - $700</option>
+                    <option value="701+">$701+</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="search">Search:</label>
+                <input type="text" id="search" placeholder="Search products...">
+            </div>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-category="all-mountain" data-price="499.99">
+                <img src="https://kevinportfoliohub.com/images/alpine-explorer.jpg" alt="Alpine Explorer snowboard" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Alpine Explorer</h3>
+                    <p class="product-description">Versatile all-mountain board for any terrain</p>
+                    <p class="product-price">$499.99</p>
+                    <button class="add-to-cart" onclick="addToCart('Alpine Explorer')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="freestyle" data-price="449.99">
+                <img src="https://kevinportfoliohub.com/images/freestyle-master.jpg" alt="Freestyle Master snowboard" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Freestyle Master</h3>
+                    <p class="product-description">Agile park and pipe board for tricks</p>
+                    <p class="product-price">$449.99</p>
+                    <button class="add-to-cart" onclick="addToCart('Freestyle Master')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="powder" data-price="599.99">
+                <img src="https://kevinportfoliohub.com/images/powder-king.jpg" alt="Powder King snowboard" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Powder King</h3>
+                    <p class="product-description">Float through deep snow with ease</p>
+                    <p class="product-price">$599.99</p>
+                    <button class="add-to-cart" onclick="addToCart('Powder King')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="all-mountain" data-price="549.99">
+                <img src="https://kevinportfoliohub.com/images/mountain-carver.jpg" alt="Mountain Carver snowboard" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Mountain Carver</h3>
+                    <p class="product-description">Precision carving for groomed runs</p>
+                    <p class="product-price">$549.99</p>
+                    <button class="add-to-cart" onclick="addToCart('Mountain Carver')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="splitboard" data-price="799.99">
+                <img src="https://snowshredders.com/images/backcountry-explorer.jpg" alt="Backcountry Explorer splitboard" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Backcountry Explorer</h3>
+                    <p class="product-description">Splitboard for backcountry adventures</p>
+                    <p class="product-price">$799.99</p>
+                    <button class="add-to-cart" onclick="addToCart('Backcountry Explorer')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="freestyle" data-price="399.99">
+                <img src="https://snowshredders.com/images/urban-rider.jpg" alt="Urban Rider snowboard" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Urban Rider</h3>
+                    <p class="product-description">Jib-friendly board for street-style riding</p>
+                    <p class="product-price">$399.99</p>
+                    <button class="add-to-cart" onclick="addToCart('Urban Rider')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Kevin Portfolio Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function addToCart(product) {
+            alert(`Added ${product} to your cart!`);
+        }
+
+        const categorySelect = document.getElementById('category');
+        const priceSelect = document.getElementById('price');
+        const searchInput = document.getElementById('search');
+        const products = document.querySelectorAll('.product-card');
+
+        function filterProducts() {
+            const category = categorySelect.value;
+            const price = priceSelect.value;
+            const searchTerm = searchInput.value.toLowerCase();
+
+            products.forEach(product => {
+                const productCategory = product.dataset.category;
+                const productPrice = parseFloat(product.dataset.price);
+                const productName = product.querySelector('.product-title').textContent.toLowerCase();
+                const productDescription = product.querySelector('.product-description').textContent.toLowerCase();
+
+                const categoryMatch = category === 'all' || productCategory === category;
+                let priceMatch = true;
+                if (price === '0-300') priceMatch = productPrice <= 300;
+                else if (price === '301-500') priceMatch = productPrice > 300 && productPrice <= 500;
+                else if (price === '501-700') priceMatch = productPrice > 500 && productPrice <= 700;
+                else if (price === '701+') priceMatch = productPrice > 700;
+
+                const searchMatch = productName.includes(searchTerm) || productDescription.includes(searchTerm);
+
+                if (categoryMatch && priceMatch && searchMatch) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        categorySelect.addEventListener('change', filterProducts);
+        priceSelect.addEventListener('change', filterProducts);
+        searchInput.addEventListener('input', filterProducts);
+    </script>
+</body>
+</html>
